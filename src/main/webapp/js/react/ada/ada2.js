@@ -1,5 +1,10 @@
 // 组件 React.createClass。
 // 组件类的首字母一定要大写。
+// 所有组件类都必须有自己的 render 方法，用于输出组件。
+// 组件的属性可以在组件类的 this.props 对象上获取，比如 name 属性就可以通过 this.props.name 读取。
+// this.props 对象的属性与组件的属性一一对应，但是有一个例外，就是 this.props.children 属性。
+// 它表示组件的所有子节点,如果当前组件没有子节点，它就是 undefined ;如果有一个子节点，数据类型是 object ；如果有多个子节点，数据类型就是 array 。
+
 let AdaButton = React.createClass({
   // 所有组件类都必须有自己的render方法，用于输出组件。
   render: function () {
