@@ -1,0 +1,53 @@
+
+##字节流（Byte Streams）
+```
+相关类：InputStream、OutputStream
+
+每次只读一个字节
+
+例如：FileInPutStream、FileOutputStream
+```
+
+##字符流（Character Streams）
+```
+处理字符数据的I/O，自动处理与本地字符集转化
+
+`相关类：Reader、Writer`
+
+例如：FileReader、FileWriter
+```
+
+##额外
+```
+字符流往往是对字节流的包装
+```
+
+## 面向行的IO
+```
+BufferedReader.readLine 输入
+
+PrintWriter.println 输出
+```
+
+##缓冲流
+```
+字节缓冲：BufferedInputStream、BufferedOutputStream
+
+字符缓冲：BufferedReader、BufferedWriter
+
+可以通过刷新缓冲区，可以在缓冲的某个关键点就将缓冲输出，而不必等待缓冲区填满
+
+自动刷新：不建议
+手动刷新：调用其flush方法，flush可以用于任何输出流，但对非缓冲流没有效果
+
+```
+
+##对象流
+```
+
+```
+
+##文件I/O(JDK7版本)
+```
+
+```

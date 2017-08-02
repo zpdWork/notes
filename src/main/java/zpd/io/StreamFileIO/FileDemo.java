@@ -1,4 +1,4 @@
-package zpd.StreamFileIO;
+package zpd.io.StreamFileIO;
 
 import java.io.File;
 
