@@ -32,4 +32,34 @@ Callable对象：可以是任务返回执行结果，或者是管理callable、r
   scheduleWithFixedDelay
 ```
 
+## 线程池
+```
+创建一个使用线程池的执行器最简单的方法是调用：
+  java.util.concurrent.Executor的newFixedThreadPool
+                                newCachedThreadPool（可扩展的线程池，适合用来启动很多都短任务的应用程序）
+                                newSingleThreadPool（每次执行一个任务的执行器）
+  ScheduledExecutorService执行器创建的工厂方法
+如以上都不满足需要，可以尝试：
+java.util.concurrent.ThreadPoolExecutor
+java.util.concurrent.ScheduledThreadPoolExecutor
+```
+
+##Fork/Join(JDK7 引入的 并发框架)
+```
+ExecutorService接口的具体实现
+框架核心是ForkJoinPool类，这个类是对AbstractExecutorService类的扩展；ForkJoinPool实现了工作窃取算法，并可以执行ForkJoinTask任务。
+基本使用：
+   java.util.Arrays.parallelSort()
+   java.util.streams包中的一些方法
+```
+
+##并发集合
+```
+BlockingQueue：定义了一个“先进先出”的数据结构，当你尝试往“满”队列中添加元素，或者从“空”队列中获取元素时，都将会阻塞或者超时。
+ConcurrentMap：是java.util.Map的子接口；标准实现是ConcureeHashMap，是HashMap的并发模式。
+ConcurrentNavigableMap：是ConcurrentMap的子接口；标准实现是ConcurrentSkipListMap,是TreeMap的并发模式。
+
+这些集合，操作之间定义一个happens-before的关系，避免内存一致性错误。
+```
+
 
