@@ -1,0 +1,35 @@
+##执行器
+```
+接口：
+  Executor：运行新任务的简单接口
+  ExecutorService：扩展了executor接口，添加了一些用来管理执行器生命周期和任务生命周期的方法
+  ScheduledExecutorService：扩展了executorService，支持future和定期执行任务
+```
+
+##Executor
+```
+executor接口只有一个execute方法，用于替代通常创建（启动）线程的方法。
+例子：
+  a是runnnable对象，b是executor
+  正确使用：b.execute(a);
+  代替使用：(new Thread(a)).start();
+```
+## ExecutorService
+```
+提供execute方法的同时，添加了更为通用的submit方法。
+submit方法除了和execute方法一样，可以接受runnable对象。还可以接受Callable对象作为参数。
+Callable对象：可以是任务返回执行结果，或者是管理callable、runnable任务的状态。
+且提供了批量运行Callable任务的方法。
+还提供了一些关闭执行器的方法。
+```
+
+##ScheduledExecutorService(计划 执行 服务)
+```
+扩展了executorService接口，并添加了schedule方法。
+调用schedule方法可以在指定的时间执行一个callable、runnable任务。
+定义了按照指定时间间隔执行任务的：
+  scheduleAtFixedRate
+  scheduleWithFixedDelay
+```
+
+
