@@ -1,0 +1,17 @@
+##并发
+```
+进程：
+线程：
+Thread：每个线程都与Tjread类的一个实例相关联
+```
+
+##Thread示例(两种方式)
+```
+一：
+  提供Runnable对象。
+  Runnable接口定义了一个方法run，用来包含线程需要执行的代码。
+
+二：
+  继承Thread。
+  Thread类本身实现了Runnable 
+```
