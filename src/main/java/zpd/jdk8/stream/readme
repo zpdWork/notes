@@ -1,0 +1,29 @@
+##Stream API
+```
+Java8中处理集合的关键抽象概念，它可以指定你希望对集合进行的操作，但是将执行操作的时间交给具体实现来决定。
+
+过滤器filter：选择元素
+map： 改变元素
+
+其他改变stream的操作包括：limit、distinct、sorted
+
+要从stream中获得结果，使用reduction操作符；
+例如：count、max、min、findFirst、findAny、其中一些方法会返回一个Optional值。
+
+Optional类型的目的是为了安全的替代使用null值；要想安全的使用，需要借助于ifPresent和orElse方法。
+
+Collentrons类的groupingBy和partitioningBy方法允许你对stream中的内容分组，并获取每个组的结果。
+
+Java8对原始类型int、long、double提供了专门的stream。
+
+```
+
+##统计集合中长度大于3的。
+```
+见Demo1
+
+说明：
+1.stream自己不会存储元素，元素可能被存储在底层的集合中，或者根据需要生产出来
+2.stream操作符不会改变元对象，相反，会返回一个持有结果的新的stream
+3.stream操作符可能是延迟执行的，这意味着会等到需要结果的时候才执行。
+```
