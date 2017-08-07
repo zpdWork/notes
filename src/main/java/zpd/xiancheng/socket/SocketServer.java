@@ -7,6 +7,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
+ *
  * Created by Ad on 2016-11-22.
  */
 public class SocketServer {
