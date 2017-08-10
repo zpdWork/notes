@@ -30,6 +30,17 @@ public class Demo1 {
     System.out.println(list.stream().filter(str -> str.length() > 3).count());
   }
 
+  /**
+   * Stream API（parallelStream）并行执行过滤和统计操作。
+   *
+   * @param list
+   */
+  private static void parallelMethod(List<String> list){
+    System.out.println(list.parallelStream().filter(s -> s.length() > 3).count());
+  }
+
+
+
   public static void main(String[] args) {
     List<String> list = new ArrayList<>();
     list.add("aa");

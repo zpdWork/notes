@@ -2,6 +2,8 @@
 ```
 Java8中处理集合的关键抽象概念，它可以指定你希望对集合进行的操作，但是将执行操作的时间交给具体实现来决定。
 
+Stream遵循：做什么、而不是怎么去做的原则。
+
 过滤器filter：选择元素
 map： 改变元素
 
@@ -16,6 +18,12 @@ Collentrons类的groupingBy和partitioningBy方法允许你对stream中的内容
 
 Java8对原始类型int、long、double提供了专门的stream。
 
+
+集合：任何集合都可以转换为一个stream(见Demo2)
+数组：通过静态的Stream.of方法将它转换为一个stream(见Demo2)
+
+不干扰模式，每次都会产生一个新的流，然后再用新的流去操作。如果在stream中直接操作原有数据，是错误的。
+
 ```
 
 ##统计集合中长度大于3的。
@@ -26,4 +34,44 @@ Java8对原始类型int、long、double提供了专门的stream。
 1.stream自己不会存储元素，元素可能被存储在底层的集合中，或者根据需要生产出来
 2.stream操作符不会改变元对象，相反，会返回一个持有结果的新的stream
 3.stream操作符可能是延迟执行的，这意味着会等到需要结果的时候才执行。
+
+三个阶段：
+1、创建一个stream
+2、在一个或多个步骤中，指定将初始stream转换为另一个stream的中间操作
+3、使用一个终止操作来产生一个结果，该操作会强制它之前的延迟槽做立即执行
+在这之后，该stream就不会再被使用
+
+Demo1中:
+通过.stream或.parallelStream方法创建stream
+通过fiflter方法对其进行转换
+count就是终止操作
+```
+
+##filter map flatMap方法
+```
+见Demo3
+
+flatMap：将一个包含多个流的流，展开为一个只包含字符串的流
+```
+
+##提取子流和组合流（见Demo4）
+```
+Stream.limit(n) 返回包含n个元素的新流 
+Stream.skip(n)  丢弃前面的n个元素
+.peek 会产生lin另一个与原始流具有相同元素的流
+.distinct 会返回一个具有相同顺序、抑制了重复元素的新流
+.sorted 方法必须遍历整个流，并在产生任何元素之前对它进行排序 
+  Collections.sort会对原有的集合进行排序
+  Stream.sorted方法会返回一个新的已排序的流
+```
+
+##输出
+```
+stream.forEach(System.out::println); Demo4 - 27行
+```
+
+## 分组和分片
+```
+Collectors.groupingBy
+Collectors.partitioningBy 留元素会被分为俩组，一组是函数返回true的元素，一组相反，在这种情况下使用partitioningBy比groupingBy更有效率
 ```

@@ -1,0 +1,37 @@
+##
+```
+Optional 类型是一种更高的表示缺少返回值的方式
+```
+
+## 方法
+```
+max：获取流中最大值
+findFirst：返回非空集合中的第一个值
+findAny：找到所有匹配的元素（不只是第一个）
+anyMatch：流中是否包含有匹配元素
+  boolean b = list.parallel.anyMatch(s -> s.startsWith("z"));
+```
+
+## 使用Optional值
+```
+ifPresent 除了使用if语句之外，还可以调用：
+  optionalValue.ifPresent(v -> Procss v);
+  
+希望将值添加到集合中
+  optionalValue.ifPresent(v -> list.add(v));
+ 或者：
+  optionalValue.ifPresent(list::add);
+
+以上不会返回任何值，如果希望对结果进行处理，可是使用map方法
+Optional<Boolean> added = optionalValue.map(list::add);
+```
+
+##为空时、没数据时
+```
+默认值：optionaLValue.orElse(""); // 封装的字符串如果没有的话，则为空字符串
+调用：optionaLValue，orElseGet(() -> ...)；
+抛异常：optionaLValue.orElseThrow(NoSouchElementException::new);
+Optional.ofNullable (见Demo1-ofNullable)
+.toArray()会返回一个Object[]类型；可以这样设置.toArray(String::new);返回一个string数组，可以指定
+collect(见Demo1-collect)
+```
