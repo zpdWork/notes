@@ -1,0 +1,133 @@
+
+
+### 8个基本类型(1个字符、1个布尔、6个数字)
+```
+char  
+double 
+int 
+long 
+double 
+flort 
+short 
+byte
+```
+
+### 转义字符：
+```
+\n \r \f \....
+```
+
+### 局部变量
+```
+只在当前{}范围中；必须初始化；
+```
+
+### 静态变量、方法
+```
+static就是在类被第一次加载的时候执行，以后就不再执行。
+```
+
+### 继承、静态加载顺序
+```
+静态、实例化、构造
+注意继承
+http://blog.sina.com.cn/s/blog_70b845780100n9zz.html
+```
+
+### static、this
+```
+public class Cygnus{
+    static int value = 9; //注意value是静态的成员变量
+    public static void main(String[] args) throws Exception{
+        new Cygnus().printValue(); // 最后输出是9
+    }
+ 
+    private void printValue(){
+        int value = 69;
+        System.out.println(this.value);
+    }
+}
+```
+
+### 测量时间间隔
+```
+try {
+    long start = System.currentTimeMillis();
+    Thread.sleep(5000);
+    long end = System.currentTimeMillis();
+    System.out.println("开始：" + new Date(start) + "\n结束：" + new Date(end));
+} catch (InterruptedException e) {
+    e.printStackTrace();
+}
+
+1.8：
+Instant start = Instant.now();
+Instant end = Instant.now();
+Duration duration = Duration.between(start,end);
+System.out.println(duration.toMillis());
+```
+
+### Calendar例子
+```
+D:\work\ideaWork\zpd\runoob-node\src\zpd\datedemo\CalendarDemo.java
+
+Calendar实现类GregorianCalendar：
+System.out.println(gc.isLeapYear(gc.get(Calendar.YEAR)) == true ? "今年是闰年" : "今年不是闰年");
+```
+
+### Excel版本
+```
+2003：application/vnd.ms-excel
+2007：application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+```
+
+### 比较:== equals
+```
+== 比较对象地址（栈层）
+equals 比较对象内容（堆层）
+如果将第二个对象赋值给第一个对象，那么这个时候他们俩个使用==就是true
+```
+
+### flush/close
+```
+处理一般文件大小，最简单的就是将文件内容作为一个字符串或者字符串列表进行处理。
+如果文件很大时，或者是二进制文件，可以使用熟悉的stream、reader、writer（通过Files.new...）
+
+在使用流时
+有的流是直接写入到指定位置，然后关闭；
+有的流（带有Buffer）时先写到缓冲区，然后等缓冲区满（8KB， 8192字节）了以后，系统再自己写到你所指定的位置，但是有时我们的数据，就达不到缓冲区满值的大小，这个时候如果直接close，数据不会写，会造成数据丢失。
+所以呀，我个人觉得，为了避免疏忽，以后再操作流的时候，每次都写上flush、close
+```
+
+### LinkedList/Arraylist
+```
+add LinkedList>Arraylist  当一个元素被加到ArrayList的最开端时，所有已经存在的元素都会后移，这就意味着数据移动和复制上的开销。相反的，将一个元素加到LinkedList的最开端只是简单的未这个元素分配一个记录，然后调整两个连接。在LinkedList的开端增加一个元素的开销是固定的，而在ArrayList的开端增加一个元素的开销是与ArrayList的大小成比例的。
+get Arraylist>LinkedList
+总结 
+  ArrayList和LinkedList在性能上各有优缺点，都有各自所适用的地方，总的说来可以描述如下： 
+  1．对ArrayList和LinkedList而言，在列表末尾增加一个元素所花的开销都是固定的。对ArrayList而言，主要是在内部数组中增加一项，指向所添加的元素，偶尔可能会导致对数组重新进行分配；而对LinkedList而言，这个开销是统一的，分配               一个内部Entry对象。
+  2．在ArrayList的中间插入或删除一个元素意味着这个列表中剩余的元素都会被移动；而在LinkedList的中间插入或删除一个元素的开销是固定的。
+  3．LinkedList不支持高效的随机元素访问。
+  4．ArrayList的空间浪费主要体现在在list列表的结尾预留一定的容量空间，而LinkedList的空间花费则体现在它的每一个元素都需要消耗相当的空间
+  可以这样说：当操作是在一列数据的后面添加数据而不是在前面或中间,并且需要随机地访问其中的元素时,使用ArrayList会提供比较好的性能；当你的操作是在一列数据的前面或中间添加或删除数据,并且按照顺序访问其中的元素时,就应该使用LinkedList了。
+```
+
+### 编码转换
+```
+// Byte[] bytes = Files.readAllBytes(null);
+// String content = new String(null, StandardCharsets.UTF_8);
+// String str = "";
+// str.getBytes(StandardCharsets.UTF_8);
+```
+
+### 字符串转换
+```
+使用Objects.toString(obj,"");//可以很好的处理null，因为如果obj为null，可以提供一个用于null对象的值
+```
+
+### 
+```
+http://blog.csdn.net/moneyshi/article/details/50786786
+https://www.douban.com/group/topic/83490647/
+http://www.jianshu.com/p/4fa1bb7232aa#
+```
