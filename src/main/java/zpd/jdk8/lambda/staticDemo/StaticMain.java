@@ -15,6 +15,7 @@ public class StaticMain {
     list.add("d");
 
     list.forEach(StaticTest::print);
+    list.forEach(System.out::println);
   }
 
 }
