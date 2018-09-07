@@ -6,7 +6,7 @@ package zpd.staticDemo;
 public class StaticM {
 
     static {
-        System.out.println("StaticM {}");
+        System.out.println("StaticM-static {}");
     }
 
     {
@@ -29,6 +29,8 @@ public class StaticM {
         System.out.println(str);
         StaticM.changeStr(str);
         System.out.println(str);
+
+//        new StaticM();
     }
 
 }

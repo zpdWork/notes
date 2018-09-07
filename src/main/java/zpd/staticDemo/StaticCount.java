@@ -6,7 +6,7 @@ package zpd.staticDemo;
 public class StaticCount {
 
     private static Integer static_i = 0;
-    private Integer static_i1 = 0;
+//    private Integer static_i1 = 0;
 
     static void addCount() {
         static_i++;

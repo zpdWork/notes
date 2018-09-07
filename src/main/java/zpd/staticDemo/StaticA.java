@@ -8,7 +8,7 @@ public class StaticA {
         System.out.println("{}");
     }
 
-    StaticA(){
+    StaticA() {
         System.out.println("StaticA {}");
     }
 
